@@ -41,7 +41,7 @@ services:
     restart: unless-stopped
     env_file: .env
     environment:
-      WG_HOST: ${WAN_IP}
+      WG_HOST: ${PublicIP}
       PASSWORD: ${WireguardPassword}
       WG_PORT: 51820
       WG_DEFAULT_ADDRESS: 10.10.10.x
