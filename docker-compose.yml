@@ -42,7 +42,7 @@ services:
     env_file: .env
     environment:
       WG_HOST: ${WAN_IP}
-      PASSWORD: ${WireguardUIPassword}
+      PASSWORD: ${WireguardPassword}
       WG_PORT: 51820
       WG_DEFAULT_ADDRESS: 10.10.10.x
       WG_DEFAULT_DNS: ${WireguardIP}, ${WireguardIP}
