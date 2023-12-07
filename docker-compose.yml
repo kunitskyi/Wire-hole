@@ -10,10 +10,26 @@ networks:
 services:
 
   unbound:
-    image: "klutchell/unbound"
     container_name: unbound
+    image: klutchell/unbound
     restart: unless-stopped
-    hostname: "unbound"
+    hostname: unbound
     networks:
       wirehole_network:
         ipv4_address: 10.100.100.20
+
+  pihole:
+    depends_on: unbound
+    container_name: pihole
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      TZ: ${TimeZone}
+      PIHOLE_DNS_: ${UnboundIP}${UnboundIP} #must be twice
+      WEBPASSWORD: ${Pi-holePassword}
+      ServerIP: ${WireguardIP}
+    volumes:
+      - "./cache/etc-pihole/:/etc/pihole/"
+      - "./cache/etc-dnsmasq.d/:/etc/dnsmasq.d/"
+    network_mode: service:wireguard-ui
