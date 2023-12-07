@@ -1,0 +1,19 @@
+ version: "3.8"
+
+networks:
+  wirehole_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.100.0.0/16
+
+services:
+
+  unbound:
+    image: "klutchell/unbound"
+    container_name: unbound
+    restart: unless-stopped
+    hostname: "unbound"
+    networks:
+      wirehole_network:
+        ipv4_address: 10.100.100.20
