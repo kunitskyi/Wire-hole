@@ -27,7 +27,7 @@ services:
     environment:
       TZ: ${TimeZone}
       PIHOLE_DNS_: ${UnboundIP};${UnboundIP} #must be twice
-      WEBPASSWORD: ${Pi-holePassword}
+      WEBPASSWORD: ${PiHolePassword}
       ServerIP: ${WireguardIP}
     volumes:
       - "./cache/etc-pihole/:/etc/pihole/"
