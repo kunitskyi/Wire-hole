@@ -29,6 +29,7 @@ services:
       PIHOLE_DNS_: ${UnboundIP};${UnboundIP} #must be twice
       WEBPASSWORD: ${PiHolePassword}
       ServerIP: ${WireguardIP}
+      DNSMASQ_LISTENING: local
     volumes:
       - "./cache/etc-pihole/:/etc/pihole/"
       - "./cache/etc-dnsmasq.d/:/etc/dnsmasq.d/"
