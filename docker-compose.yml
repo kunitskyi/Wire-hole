@@ -52,7 +52,7 @@ services:
       - "./cache/etc-wireguard:/etc/wireguard"
     ports:
       - "51820:51820/udp"
-      # - "51810:51821/tcp" # Webinterface
+      # - "51810:51821/tcp" # Web-interface
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
