@@ -33,16 +33,22 @@ Before start you must make sure, that [Docker Engine](https://docs.docker.com/en
    #!/bin/bash
    cp .env.example .env
    ```
-1. Edit __*.env*__, by changing value of:
+1. Edit __*.env*__ file, by changing value of:
    - __`PublicIP`__ must contain public IP of your server.
    - __`PiHolePassword`__ and __`WireguardPassword`__ to more secure password.
    - __`TimeZone`__ set your timezone to make sure logs in Pi-hole rotate at local midnight instead of at "Europe/Kyiv" midnight.
-1. Start your composition:
+
+    in any text editor, for example you can use nano
+    ```bash
+    #!/bin/bash
+    nano .env
+    ```
+2. Start your composition:
    ```bash
    #!/bin/bash
    docker compose up -d
    ```
-1. Now, you ready to add wireguard clients, just log in on [http:/192.0.2.27:51810](http:/192.0.2.27:51810), using password which your change in __*.env*__ file. Change __*`192.0.2.27`*__ in url to __your__ Public IP.
+3. Now, you ready to add wireguard clients, just log in on [http:/192.0.2.27:51810](http:/192.0.2.27:51810), using password which your change in __*.env*__ file. Change __*`192.0.2.27`*__ in url to __your__ Public IP.
 
 ## Tips&Recommendation
 
