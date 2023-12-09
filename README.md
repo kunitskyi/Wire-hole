@@ -4,7 +4,7 @@
 
 ---
 
-Wire-hole comprises images of Unbound, Pi-hole, and Wireguard in a docker-compose configuration file. It aims to enhance your daily internet usage by providing a more secure and less intrusive experience, achievable through a minimal number of straightforward steps. The web-interfaces of Pi-hole and Wireguard contribute to facilitating this improvement. You can manage VPN clients, DNS-records, monitor logs and many more feature present in this project.
+Wire-hole comprises images of Unbound, Pi-hole, and Wireguard in a docker-compose configuration file. It aims to enhance your daily internet usage by providing a more secure and less intrusive experience, achievable through a minimal number of straightforward steps. The web-interfaces of Pi-hole and Wireguard contribute to facilitating this improvement. You can manage VPN clients, DNS-records, block ads, monitor logs and many more feature present in this project.
 
 *__`NOTICE!`__ This configuration will not work on Windows host machine, clients doesn't matter.* 
 
@@ -34,7 +34,7 @@ Before start you must make sure, that [Docker Engine](https://docs.docker.com/en
    cp .env.example .env
    ```
 1. Edit __*.env*__ file, by changing value of:
-   - __`PublicIP`__ must contain public IP of your server.
+   - __`PublicIP`__ must contain public IPv4 of your server.
    - __`PiHolePassword`__ and __`WireguardPassword`__ to more secure password.
    - __`TimeZone`__ set your timezone to make sure logs in Pi-hole rotate at local midnight instead of at "Europe/Kyiv" midnight.
 
@@ -43,12 +43,12 @@ Before start you must make sure, that [Docker Engine](https://docs.docker.com/en
     #!/bin/bash
     nano .env
     ```
-2. Start your composition:
+1. Start your composition:
    ```bash
    #!/bin/bash
    docker compose up -d
    ```
-3. Now, you ready to add wireguard clients, just log in on [http:/192.0.2.27:51810](http:/192.0.2.27:51810), using password which your change in __*.env*__ file. Change __*`192.0.2.27`*__ in url to __your__ Public IP.
+1. Now, you ready to add wireguard clients, just log in on [http:/192.0.2.27:51810](http:/192.0.2.27:51810), using password which your change in __*.env*__ file. Change __*`192.0.2.27`*__ in url to __your__ Public IP.
 
 ## Tips&Recommendation
 
@@ -69,6 +69,7 @@ Before start you must make sure, that [Docker Engine](https://docs.docker.com/en
 - In `.env` file:
   - Make sure __`PublicIP`__ contain public IP of your server.
   - Change value of strings __`PiHolePassword`__ and __`WireguardPassword`__ to more secure password.
+- You can check if you did everything right by visiting [DNS leak](https://www.dnsleaktest.com/). On main page you must see your server public IPv4 and after either Standard or Extended test  in results also must be same IP address.
 - Folder __*cache*__ contain data with Wireguard settings, Pi-hole configurations, logs, etc.
 - You can always customize it setup for yourself very easy, if you now how to do it and why to do it.
 
