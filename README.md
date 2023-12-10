@@ -88,9 +88,11 @@ __*Don't touch `UnboundIP` and `WireguardIP` assigned address, unless you know w
 
 More information about variables you can find on Dockerhub or GitHub page of specific image. How to configure them, you can find [here](https://docs.docker.com/compose/environment-variables/).
 
-<!-- ## Scheme
+## Scheme
 
-*Image below contain visualisation of default configuration* -->
+*Image below contain simple visualisation of default configuration*
+
+![](meta/scheme.png)
 
 ## About images
 
