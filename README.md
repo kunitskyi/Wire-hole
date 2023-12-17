@@ -52,7 +52,7 @@ Before start you must make sure, that [Docker Engine](https://docs.docker.com/en
 
 ## Tips&Recommendation
 
-- By *default* your Wireguard accessible from internet to __anyone__!
+- By *default* your Wireguard Control Panel accessible from internet to __anyone__!
   - To fix this you must after creating first clients, comment line `"51810:51821/tcp"` in __*docker-compose.yml*__, like below:
     ```yaml
     ports:
